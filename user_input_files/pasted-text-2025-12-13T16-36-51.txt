@@ -1,0 +1,253 @@
+Project Proposal & Requirement Confirmation Document
+Library & Institute Management Application
+
+(Android App + iOS App + Web App + Admin Panel + Secure Backend)
+
+1. Project Overview
+
+This proposal outlines the complete functional, technical, and operational requirements for developing a multi-platform Library & Institute Management Application.
+The system will streamline student management, attendance tracking, fee monitoring, seating allocation, library expenditure, and administrative workflows across Android, iOS, and Web platforms.
+
+The purpose of this document is to confirm all features and expectations from the client before development begins.
+
+2. Core Objectives
+
+The application will enable the institute to:
+
+Monitor student admissions and exits
+
+Track attendance for morning and evening shifts
+
+Manage fees (paid, pending, advance)
+
+Record library expenses
+
+Assign and manage student seating
+
+Track locker-enabled seats
+
+Manage roles and permissions
+
+View analytics and reports
+
+Ensure data security and controlled access
+
+3. Detailed Functional Requirements
+3.1 Student Management
+
+The system must support:
+
+✔ Total Admissions Tracking
+
+Store complete profile of every enrolled student
+
+Show total number of active students
+
+✔ Student Exit Tracking
+
+Maintain a list of students who have left
+
+Record reason/date of exit
+
+✔ Shift-Based Attendance
+
+Morning shift attendance count
+
+Evening shift attendance count
+
+Daily, weekly, and monthly attendance logs
+
+Option for manual or QR-based attendance
+
+3.2 Fee Management
+
+The system must include a robust financial module:
+
+✔ Fee Status Overview
+
+Total number of students who have paid
+
+Total number of students whose fees are pending
+
+Total number of students who paid in advance
+
+✔ Fee Details
+
+Amount due
+
+Payment history
+
+Due-date reminders
+
+Admin-controlled fee structure
+
+3.3 Library Expense Management
+
+The system should provide:
+
+Entry of all library-related expenses (books, maintenance, stationery, digital resources)
+
+Running total of library expenses
+
+Filter and search by date, category, vendor
+
+3.4 Seating & Locker Management
+✔ Seating Arrangement
+
+List of all available seats
+
+Assign students to specific seats
+
+Change/modify seat assignments
+
+Visual seat map (optional feature)
+
+✔ Locker Seat Tracking
+
+Identify which seats have lockers
+
+Assign lockers to students
+
+Change locker assignment as needed
+
+3.5 User Roles & Permissions
+
+Multiple user types:
+
+Super Admin: Full control
+
+Admin/Staff: Student management, fees, attendance
+
+Librarian: Library records + expenses
+
+Accountant: Fee management only
+
+Each role will have restricted permissions according to responsibilities.
+
+3.6 Analytics & Reporting Dashboard
+
+The system will offer:
+
+Admission statistics
+
+Attendance trends
+
+Fee collection overview
+
+Pending fees report
+
+Library expenditure summary
+
+Shift-wise student breakdown
+
+Reports downloadable as PDF/Excel.
+
+3.7 Authentication & Security Requirements
+
+To ensure safe data handling:
+
+Secure login for all users
+
+OTP or password-based authentication
+
+Role-based access control
+
+Data encryption (in transit & at rest)
+
+Audit logs for every update
+
+Automatic data backups
+
+Compliance with Indian DPDP Act
+
+4. Technical Requirements
+4.1 Application Platforms
+
+Android App (latest OS versions supported)
+
+iOS App (iOS 14+)
+
+Web Application (mobile + desktop responsive)
+
+Admin Panel (browser-based)
+
+4.2 Backend & Server Requirements
+
+The backend will be built using scalable and secure modern technologies:
+
+Core Backend
+
+Node.js / Python FastAPI / Java Spring Boot (final choice after discussion)
+
+REST API or GraphQL API
+
+JWT-based authentication
+
+Background jobs for reminders & backups
+
+Server Infrastructure
+
+Cloud hosting (AWS / GCP / Azure)
+
+Auto-scaling environment
+
+HTTPS with SSL
+
+Firewall + DDoS protection
+
+Storage
+
+Cloud object storage for documents
+
+Secure file handling
+
+4.3 Database Requirements
+
+Relational DB (PostgreSQL / MySQL)
+
+Optimized schema for students, fees, attendance, seating
+
+Encrypted sensitive fields
+
+Daily & weekly backups
+
+High-availability setup (if needed)
+
+4.4 Notification System
+
+Push notifications (Android / iOS)
+
+Email alerts for fees + reminders
+
+SMS notifications (optional add-on)
+
+5. Project Timeline (Estimated)
+
+Total duration: 12–16 weeks
+
+Phase	Description	Duration
+1. Requirement Finalization	Confirming all modules & workflows	1 week
+2. UI/UX Design	Mobile app screens, web layout, admin panel	2–3 weeks
+3. Backend Development	API, database, authentication, cloud setup	3–4 weeks
+4. Frontend Development (Android + iOS + Web)	Building apps + dashboards	4–5 weeks
+5. Integration & Testing	QA, bug fixing, performance checks	1–2 weeks
+6. Deployment & Training	Publishing apps, handing over admin panel	1 week
+Total: 3 to 4 Months
+6. Deliverables
+You will receive:
+
+Fully working Android application
+
+Fully working iOS application
+
+Fully responsive Web application
+
+Secure Admin Dashboard
+
+Cloud backend + database
+
+Documentation
+
+Training on using the system
+
+1–3 months post-launch support

@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-family: 'Inter', sans-serif;
+  }
+  
+  body {
+    @apply bg-background text-neutral-700;
+    font-feature-settings: "tnum";
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Fix for layout positioning */
+  #__next {
+    min-height: 100vh;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-primary-600 hover:bg-primary-700 text-white font-medium px-4 py-2 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-secondary {
+    @apply bg-neutral-100 hover:bg-neutral-200 text-neutral-700 font-medium px-4 py-2 rounded-md transition-colors duration-200;
+  }
+  
+  .btn-ghost {
+    @apply text-neutral-500 hover:text-neutral-700 hover:bg-neutral-50 font-medium px-4 py-2 rounded-md transition-colors duration-200;
+  }
+  
+  .input-field {
+    @apply w-full px-3 py-2 border border-neutral-300 rounded-md focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors duration-200;
+  }
+  
+  .card {
+    @apply bg-surface border border-border rounded-lg shadow-card;
+  }
+  
+  .table-header {
+    @apply text-xs font-medium text-neutral-500 uppercase tracking-wider;
+  }
+  
+  .table-cell {
+    @apply text-sm text-neutral-700;
+  }
+  
+  .status-badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+  
+  .status-success {
+    @apply bg-emerald-50 text-emerald-700 border border-emerald-200;
+  }
+  
+  .status-warning {
+    @apply bg-amber-50 text-amber-700 border border-amber-200;
+  }
+  
+  .status-error {
+    @apply bg-rose-50 text-rose-700 border border-rose-200;
+  }
+  
+  .status-info {
+    @apply bg-sky-50 text-sky-700 border border-sky-200;
+  }
+}

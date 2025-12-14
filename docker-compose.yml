@@ -1,0 +1,72 @@
+# Unified Deployment Configuration for LIMS SaaS Platform
+
+# This repository contains two applications:
+# 1. Marketing Website: saas-website (port 3000) - Customer-facing marketing site
+# 2. Main Application: LIMS (port 3001) - Admin/teacher/student dashboard
+
+# Deployment Structure:
+# - Production: app.yourdomain.com (LIMS Application)
+# - Marketing: www.yourdomain.com (saas-website)
+
+# For local development:
+# - Marketing: http://localhost:3000
+# - Main App: http://localhost:3001
+
+# Docker Compose for unified deployment
+version: '3.8'
+
+services:
+  # Marketing Website
+  marketing-website:
+    build:
+      context: ./saas-website
+      dockerfile: Dockerfile
+    container_name: lims-marketing
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    networks:
+      - lims-network
+
+  # Main LIMS Application
+  main-application:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: lims-app
+    ports:
+      - "3001:3001"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=${DATABASE_URL}
+      - JWT_SECRET=${JWT_SECRET}
+      - NEXTAUTH_SECRET=${NEXTAUTH_SECRET}
+    restart: unless-stopped
+    networks:
+      - lims-network
+
+  # Nginx Reverse Proxy
+  nginx:
+    image: nginx:alpine
+    container_name: lims-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+      - /etc/letsencrypt:/etc/letsencrypt
+    depends_on:
+      - marketing-website
+      - main-application
+    restart: unless-stopped
+    networks:
+      - lims-network
+
+networks:
+  lims-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
