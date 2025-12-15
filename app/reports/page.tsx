@@ -3,9 +3,9 @@
 import { useState, useEffect } from 'react';
 import { useAuth } from '@/contexts/AuthContext';
 import { EnhancedLayout } from '@/components/layout/EnhancedLayout';
-import { 
-  ChartBarIcon, 
-  DocumentTextIcon, 
+import {
+  ChartBarIcon,
+  DocumentTextIcon,
   ArrowDownTrayIcon,
   FunnelIcon,
   CalendarIcon,
@@ -54,7 +54,7 @@ export default function ReportsPage() {
 
     // Apply search filter
     if (searchTerm) {
-      result = result.filter(item => 
+      result = result.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
         item.generatedBy.toLowerCase().includes(searchTerm.toLowerCase())
       );
@@ -62,7 +62,7 @@ export default function ReportsPage() {
 
     // Apply date filter
     if (dateFrom && dateTo) {
-      result = result.filter(item => 
+      result = result.filter(item =>
         item.generatedAt >= dateFrom && item.generatedAt <= dateTo
       );
     } else if (dateFrom) {
@@ -155,7 +155,6 @@ export default function ReportsPage() {
               title=""
               description=""
               chartType="pie"
-              height={300}
             />
           </div>
 
@@ -166,7 +165,6 @@ export default function ReportsPage() {
               title=""
               description=""
               chartType="bar"
-              height={300}
             />
           </div>
         </div>
@@ -291,7 +289,7 @@ export default function ReportsPage() {
               </tbody>
             </table>
           </div>
-          
+
           {filteredReports.length === 0 && (
             <div className="text-center py-12">
               <DocumentTextIcon className="w-12 h-12 text-neutral-400 mx-auto" />

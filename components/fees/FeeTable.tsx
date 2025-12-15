@@ -2,7 +2,7 @@
 
 import { FeeStructure } from '@/types';
 import { formatDate, formatCurrency, getStatusColor } from '@/lib/utils';
-import { 
+import {
   CurrencyRupeeIcon,
   DocumentTextIcon,
   EyeIcon,
@@ -10,7 +10,7 @@ import {
 
 interface FeeTableProps {
   fees: FeeStructure[];
-  onPayment: (fee: FeeStructure) => void;
+  onPayment?: (fee: FeeStructure) => void;
 }
 
 export function FeeTable({ fees, onPayment }: FeeTableProps) {
@@ -94,9 +94,8 @@ export function FeeTable({ fees, onPayment }: FeeTableProps) {
                   </div>
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  <div className={`text-sm font-medium ${
-                    fee.remainingAmount > 0 ? 'text-rose-600' : 'text-emerald-600'
-                  }`}>
+                  <div className={`text-sm font-medium ${fee.remainingAmount > 0 ? 'text-rose-600' : 'text-emerald-600'
+                    }`}>
                     {formatCurrency(fee.remainingAmount)}
                   </div>
                 </td>
@@ -114,7 +113,7 @@ export function FeeTable({ fees, onPayment }: FeeTableProps) {
                     >
                       <DocumentTextIcon className="w-4 h-4" />
                     </button>
-                    {fee.remainingAmount > 0 && (
+                    {onPayment && fee.remainingAmount > 0 && (
                       <button
                         onClick={() => onPayment(fee)}
                         className="text-blue-600 hover:text-blue-900 p-1"
